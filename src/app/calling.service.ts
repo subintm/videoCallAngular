@@ -10,7 +10,7 @@ export class CallingService {
   call = computed<Call | undefined>(() => {
     const currentCallId = this.callId();
     if (currentCallId !== undefined) {
-      const call = this.client.call('livestream', currentCallId);
+      const call = this.client.call('default', currentCallId);
 
       call.join({ create: true }).then(async () => {
         call.camera.enable();
