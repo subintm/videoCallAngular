@@ -10,7 +10,7 @@ export class CallingService {
   call = computed<Call | undefined>(() => {
     const currentCallId = this.callId();
     if (currentCallId !== undefined) {
-      const call = this.client.call('default', currentCallId);
+      const call = this.client.call('livestream', currentCallId);
 
       call.join({ create: true }).then(async () => {
         call.camera.enable();
@@ -25,11 +25,10 @@ export class CallingService {
   client: StreamVideoClient;
 
   constructor() {
-    const apiKey = 'mmhfdzb5evj2';
-    const token =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiQ2Fybm9yX0pheCIsImlzcyI6Imh0dHBzOi8vcHJvbnRvLmdldHN0cmVhbS5pbyIsInN1YiI6InVzZXIvQ2Fybm9yX0pheCIsImlhdCI6MTcwODU5NjE3NSwiZXhwIjoxNzA5MjAwOTgwfQ.aaanw1N3BctIGtX8869uJXb8cnbTt8JXzZHFjEm5y8M';
-    const user: User = { id: 'Carnor_Jax' };
-
+   
+const apiKey = 'mmhfdzb5evj2';
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3Byb250by5nZXRzdHJlYW0uaW8iLCJzdWIiOiJ1c2VyL0NhbGxpc3RhX01pbmciLCJ1c2VyX2lkIjoiQ2FsbGlzdGFfTWluZyIsInZhbGlkaXR5X2luX3NlY29uZHMiOjYwNDgwMCwiaWF0IjoxNzMyNTk1MzQ1LCJleHAiOjE3MzMyMDAxNDV9.bPDlzv5gwYAQPKJbn5QqrZX3N5B8WWgk42pEZ2x853U';
+const user: User = { id: 'Callista_Ming' };
     this.client = new StreamVideoClient({ apiKey, token, user });
   }
 
